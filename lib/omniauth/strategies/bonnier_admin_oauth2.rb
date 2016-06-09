@@ -8,8 +8,8 @@ module OmniAuth
       option :site
       option :name, "bonnier_admin_oauth2"
       option :client_options, {
-        :authorize_url      => '/api/oauth/authorize',
-        :token_url          => '/api/oauth/token'
+        :authorize_url      => '/oauth/authorize',
+        :token_url          => '/oauth/token'
       }
 
       uid { raw_info["id"].to_s }
@@ -17,10 +17,8 @@ module OmniAuth
       info do
         {
           "email" => raw_info["email"],
-          "username" => raw_info["username"],
-          "profile_image_url" => raw_info["profile_image"].try(:fetch, "url"),
-          "url" => raw_info["url"],
-          "roles" => raw_info["roles"]
+          "first_name" => raw_info["first_name"],
+          "last_name" => raw_info["last_name"]
         }
       end
 
@@ -31,7 +29,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/api/v2/users/current.json').parsed
+        @raw_info ||= access_token.get('/api/users/current.json').parsed
       end
 
       def client
