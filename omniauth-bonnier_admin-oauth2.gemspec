@@ -3,7 +3,7 @@ require File.expand_path(File.join('..', 'lib', 'omniauth', 'bonnier_admin_oauth
 
 Gem::Specification.new do |s|
   s.name        = 'omniauth-bonnier-admin-oauth2'
-  s.version     = OmniAuth::BonnierOauth2::VERSION
+  s.version     = OmniAuth::BonnierAdminOauth2::VERSION
   s.author       = ["Bonnier Publications - Interactive"]
   s.homepage     = "https://github.com/BenjaminMedia/omniauth-bonnier-admin-oauth2"
 
