@@ -8,23 +8,23 @@ module OmniAuth
       option :site
       option :name, "bonnier_admin_oauth2"
       option :client_options, {
-        :authorize_url      => '/oauth/authorize',
-        :token_url          => '/oauth/token'
+        authorize_url:      '/oauth/authorize',
+        token_url:          '/oauth/token'
       }
 
       uid { raw_info["id"].to_s }
 
       info do
         {
-          "email" => raw_info["email"],
-          "first_name" => raw_info["first_name"],
-          "last_name" => raw_info["last_name"]
+          email: raw_info["email"],
+          first_name: raw_info["first_name"],
+          last_name: raw_info["last_name"]
         }
       end
 
       extra do
         {
-          'raw_info' => raw_info
+          raw_info: raw_info
         }
       end
 
