@@ -9,7 +9,6 @@ describe OmniAuth::Strategies::BonnierAdminOauth2 do
   subject do
     args = ["appid", "secret", @options || {}]
     described_class.new(*args).tap do |strategy|
-#    OmniAuth::Strategies::BonnierAdminOauth2.new(*args).tap do |strategy|
       allow(strategy).to receive(:request).and_return(request)
     end
   end
@@ -37,7 +36,6 @@ describe OmniAuth::Strategies::BonnierAdminOauth2 do
   end
 
   describe "#uid" do
-    #let(:raw_info) { {"user" => {"id" => "123"}} }
     let(:uid) { "123" }
     let(:raw_info) { {"id" => uid} }
     before do
@@ -50,7 +48,6 @@ describe OmniAuth::Strategies::BonnierAdminOauth2 do
   end
 
   describe "#info" do
-    #let(:raw_info) { {"user" => {"first_name" => "Mike", "email" => "mike@example.com"}} }
     let(:first_name) { "Mike" }
     let(:email) { "mike@example.com" }
     let(:raw_info) { {"first_name" => first_name, "email" => email} }
